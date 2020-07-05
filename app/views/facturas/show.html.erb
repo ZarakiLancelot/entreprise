@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @factura.fecha %>
+</p>
+
+<p>
+  <strong>Compania:</strong>
+  <%= @factura.compania %>
+</p>
+
+<p>
+  <strong>Impuesto:</strong>
+  <%= @factura.impuesto %>
+</p>
+
+<p>
+  <strong>Vendedor:</strong>
+  <%= @factura.vendedor %>
+</p>
+
+<%= link_to 'Edit', edit_factura_path(@factura) %> |
+<%= link_to 'Back', facturas_path %>
