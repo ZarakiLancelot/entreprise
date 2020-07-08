@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Entreprise</title>
+    <title>Enterprise</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,14 @@
   </head>
 
   <body>
+    <%= link_to 'Home', root_path %>
+    <%= link_to 'Sobre Nosotros', bienvenida_about_path %>
+    <%= link_to 'Contacto', bienvenida_contacto_path %>
+    <%= link_to 'Características', bienvenida_caracteristicas_path %>
+    <%= link_to 'FAQs', bienvenida_faq_path %>
+    <%= link_to 'Precios', bienvenida_precios_path %>
+    <%= link_to 'Facturas', facturas_path %>
+    <%= link_to 'Ingresar', root_path %>
     <%= yield %>
   </body>
 </html>

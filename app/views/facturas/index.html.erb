@@ -20,9 +20,9 @@
         <td><%= factura.compania %></td>
         <td><%= factura.impuesto %></td>
         <td><%= factura.vendedor %></td>
-        <td><%= link_to 'Show', factura %></td>
-        <td><%= link_to 'Edit', edit_factura_path(factura) %></td>
-        <td><%= link_to 'Destroy', factura, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', factura %></td>
+        <td><%= link_to 'Editar', edit_factura_path(factura) %></td>
+        <td><%= link_to 'Eliminar', factura, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Factura', new_factura_path %>
+<%= link_to 'Nueva Factura', new_factura_path %>
