@@ -10,14 +10,20 @@
   </head>
 
   <body>
-    <%= link_to 'Home', root_path %>
-    <%= link_to 'Sobre Nosotros', bienvenida_about_path %>
-    <%= link_to 'Contacto', bienvenida_contacto_path %>
-    <%= link_to 'Características', bienvenida_caracteristicas_path %>
-    <%= link_to 'FAQs', bienvenida_faq_path %>
-    <%= link_to 'Precios', bienvenida_precios_path %>
-    <%= link_to 'Facturas', facturas_path %>
-    <%= link_to 'Ingresar', root_path %>
-    <%= yield %>
+
+    <div class="container">
+      <ul class="nav nav-tabs">
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'Sobre Nosotros', bienvenida_about_path %></li>
+        <li><%= link_to 'Contacto', bienvenida_contacto_path %></li>
+        <li><%= link_to 'Características', bienvenida_caracteristicas_path %></li>
+        <li><%= link_to 'FAQs', bienvenida_faq_path %></li>
+        <li><%= link_to 'Precios', bienvenida_precios_path %></li>
+        <li><%= link_to 'Facturas', facturas_path %></li>
+        <li><%= link_to 'Ingresar', root_path %></li>
+      </ul>
+
+      <%= yield %>
+    </div>
   </body>
 </html>
