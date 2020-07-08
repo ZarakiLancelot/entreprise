@@ -1,24 +1,31 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Enterprise App
+==============
 
-Things you may want to cover:
+Software muy poderoso
+---------------------
 
-* Ruby version
+### Bienvenido al repositorio
 
-* System dependencies
+Siéntete libre de acceder a [mi portafolio](http://edwin-einsen.com).
 
-* Configuration
+> ## Lorem ipsum dolor sit amet
+>
+> Nam nec justo magna. Sed sodales turpis quis enim semper posuere. Nullam tellus nisl, congue eu neque ac, pellente.
+>
+> Donec malesuada aliquam *gravida*.
 
-* Database creation
+Donec malesuada aliquam **gravida**.
 
-* Database initialization
+### Muy buen software
+* Desarrollo ágil
++ Probado
+- Soporte 24/7
 
-* How to run the test suite
+### Razones para escogernos
+1. Precio
+2. Precisión
+3. Rendimiento
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Esto es como código en Ruby se ve `puts 'Hola mundo'`
