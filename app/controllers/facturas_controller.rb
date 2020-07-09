@@ -4,7 +4,8 @@ class FacturasController < ApplicationController
   # GET /facturas
   # GET /facturas.json
   def index
-    @facturas = Factura.all
+    @busqueda = BusquedaFactura.new(params[:busqueda])
+    @facturas = @busqueda.scope
   end
 
   # GET /facturas/1

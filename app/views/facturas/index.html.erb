@@ -1,6 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Facturas</h1>
+<div class="row">
+  <h1>Facturas</h1>
+  <div class="pull-right range-query">
+    <%= form_tag facturas_path, method: :get do %>
+      <%= text_field_tag 'busqueda[fecha_desde]', @busqueda.fecha_desde %>
+      <%= text_field_tag 'busqueda[fecha_hasta]', @busqueda.fecha_hasta %>
+      <%= submit_tag 'Buscar', class: 'btn boton-busqueda' %>
+    <% end %>
+  </div>
+</div>
 
 <div class="media">
   <div class="media-body">
