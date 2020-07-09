@@ -2,31 +2,35 @@
 
 <h1>Facturas</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Fecha</th>
-      <th>Compania</th>
-      <th>Impuesto</th>
-      <th>Vendedor</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="media">
+  <div class="media-body">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Compania</th>
+          <th>Impuesto</th>
+          <th>Vendedor</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @facturas.each do |factura| %>
-      <tr>
-        <td><%= factura.fecha %></td>
-        <td><%= factura.compania %></td>
-        <td><%= factura.impuesto %></td>
-        <td><%= factura.vendedor %></td>
-        <td><%= link_to 'Mostrar', factura %></td>
-        <td><%= link_to 'Editar', edit_factura_path(factura) %></td>
-        <td><%= link_to 'Eliminar', factura, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @facturas.each do |factura| %>
+          <tr>
+            <td><%= factura.fecha.strftime("%Y-%m-%d") %></td>
+            <td><%= factura.compania %></td>
+            <td><%= factura.impuesto %></td>
+            <td><%= factura.vendedor %></td>
+            <td><%= link_to 'Mostrar', factura, class: 'btn btn-mini btn-success' %></td>
+            <td><%= link_to 'Editar', edit_factura_path(factura), class: 'btn btn-mini btn-warning' %></td>
+            <td><%= link_to 'Eliminar', factura, method: :delete, class: 'btn btn-mini btn-danger', data: { confirm: 'Estás seguro?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 <br>
 
