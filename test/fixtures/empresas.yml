@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: empresas
+#
+#  id           :integer          not null, primary key
+#  dias_credito :integer
+#  estado       :string
+#  gerente      :string
+#  nombre       :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+one:
+  nombre: MyString
+  gerente: MyString
+  estado: MyString
+  dias_credito: 1
+
+two:
+  nombre: MyString
+  gerente: MyString
+  estado: MyString
+  dias_credito: 1

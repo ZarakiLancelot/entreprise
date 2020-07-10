@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Empresas</h1>
+
+<div class="media">
+  <div class="media-body">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Gerente</th>
+          <th>Estado</th>
+          <th>Dias credito</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @empresas.each do |empresa| %>
+          <tr>
+            <td><%= empresa.nombre %></td>
+            <td><%= empresa.gerente %></td>
+            <td><%= empresa.estado %></td>
+            <td><%= empresa.dias_credito %></td>
+            <td><%= link_to 'Mostrar', empresa, class: 'btn btn-mini btn-success' %></td>
+            <td><%= link_to 'Editar', edit_empresa_path(empresa), class: 'btn btn-mini btn-warning' %></td>
+            <td><%= link_to 'Eliminar', empresa, method: :delete, class: 'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<hr>
+
+<h3>Importar Empresas</h3>
+<%= form_tag importar_empresas_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Cargar CSV" %>
+<% end %>
+
+<hr>
+
+<%= link_to 'Nueva Empresa', new_empresa_path %>
+
+<br>
