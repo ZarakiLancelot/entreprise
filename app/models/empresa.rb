@@ -17,5 +17,16 @@ class Empresa < ApplicationRecord
             Empresa.create! row.to_hash
         end
     end
+
+    def self.to_csv
+        attributes = %w{id nombre gerente estado dias_credito created_at updated_at}
+
+        CSV.generate(headers: true) do |csv|
+            csv << attributes
+            all.each do |empresa|
+                csv << attributes.map{ |attr| empresa.send(attr) }
+            end
+        end
+    end
     
 end

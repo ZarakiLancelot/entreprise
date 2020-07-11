@@ -1,37 +1,51 @@
-<%= form_with(model: factura, local: true) do |form| %>
-  <% if factura.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(factura.errors.count, "error") %> prohibited this factura from being saved:</h2>
+<div class="row">
+  <%= form_with(model: factura, local: true, html: { class: 'form-horizontal' }) do |form| %>
+    <% if factura.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(factura.errors.count, "error") %> prohibited this factura from being saved:</h2>
 
-      <ul>
-        <% factura.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% factura.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="control-group">
+      <%= form.label :fecha, class: 'control-label' %><br>
+      <div class="controls">
+        <%= form.date_field :fecha %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= form.label :compania, class: 'control-label' %><br>
+      <div class="controls">
+        <%= form.text_field :compania %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= form.label :impuesto, class: 'control-label' %><br>
+      <div class="controls">
+        <%= form.text_field :impuesto %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= form.label :vendedor, class: 'control-label' %><br>
+      <div class="controls">
+        <%= form.text_field :vendedor %>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="control-group">
+      <div class="controls">
+        <%= form.submit 'Guardar', class: 'btn btn-default' %>
+      </div>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :fecha %>
-    <%= form.datetime_select :fecha %>
-  </div>
-
-  <div class="field">
-    <%= form.label :compania %>
-    <%= form.text_field :compania %>
-  </div>
-
-  <div class="field">
-    <%= form.label :impuesto %>
-    <%= form.text_field :impuesto %>
-  </div>
-
-  <div class="field">
-    <%= form.label :vendedor %>
-    <%= form.text_field :vendedor %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

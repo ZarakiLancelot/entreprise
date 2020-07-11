@@ -1,5 +1,9 @@
-<h1>New Factura</h1>
+<div>
+    <h1>Nueva Factura</h1>
 
-<%= render 'form', factura: @factura %>
+    <%= render 'form', factura: @factura %>
 
-<%= link_to 'Back', facturas_path %>
+    <hr>
+
+    <%= link_to 'Regresar', facturas_path, class: 'btn btn-default' %>
+</div>

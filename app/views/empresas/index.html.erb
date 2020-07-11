@@ -37,8 +37,13 @@
 <h3>Importar Empresas</h3>
 <%= form_tag importar_empresas_path, multipart: true do %>
   <%= file_field_tag :file %>
-  <%= submit_tag "Cargar CSV" %>
+  <%= submit_tag "Cargar CSV", class: 'btn btn-default' %>
 <% end %>
+
+<hr>
+
+<h3>Descargar Reporte</h3>
+<%= link_to "Reporte", empresas_path(format: "csv"), class: 'btn btn-default' %>
 
 <hr>
 
