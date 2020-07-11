@@ -34,9 +34,16 @@
     </div>
 
     <div class="control-group">
-      <%= form.label :vendedor, class: 'control-label' %><br>
+      <%= form.label :empleado_id, class: 'control-label' %><br>
       <div class="controls">
-        <%= form.text_field :vendedor %>
+        <%= collection_select( :factura, :empleado_id, Empleado.all, :id, :nombre, {}, { :multiple => false }) %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= form.label "Estado", class: 'control-label' %>
+      <div class="controls">
+        <%= form.select(:estado, options_for_select([['pagada', 'pagada'], ['pendiente', 'pendiente']]), { include_blank: true }) %>
       </div>
     </div>
 

@@ -1,6 +1,14 @@
 # == Route Map
 #
 #                                Prefix Verb   URI Pattern                                                                              Controller#Action
+#                             empleados GET    /empleados(.:format)                                                                     empleados#index
+#                                       POST   /empleados(.:format)                                                                     empleados#create
+#                          new_empleado GET    /empleados/new(.:format)                                                                 empleados#new
+#                         edit_empleado GET    /empleados/:id/edit(.:format)                                                            empleados#edit
+#                              empleado GET    /empleados/:id(.:format)                                                                 empleados#show
+#                                       PATCH  /empleados/:id(.:format)                                                                 empleados#update
+#                                       PUT    /empleados/:id(.:format)                                                                 empleados#update
+#                                       DELETE /empleados/:id(.:format)                                                                 empleados#destroy
 #                   new_usuario_session GET    /usuarios/sign_in(.:format)                                                              devise/sessions#new
 #                       usuario_session POST   /usuarios/sign_in(.:format)                                                              devise/sessions#create
 #               destroy_usuario_session DELETE /usuarios/sign_out(.:format)                                                             devise/sessions#destroy
@@ -66,6 +74,7 @@
 
 Rails.application.routes.draw do
   
+  resources :empleados
   devise_for :usuarios
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   

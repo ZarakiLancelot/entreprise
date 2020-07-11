@@ -70,6 +70,6 @@ class FacturasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def factura_params
-      params.require(:factura).permit(:fecha, :compania, :impuesto, :vendedor)
+      params.require(:factura).permit(:fecha, :compania, :impuesto, :empleado_id, :estado)
     end
 end

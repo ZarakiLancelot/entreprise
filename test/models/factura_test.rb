@@ -2,13 +2,14 @@
 #
 # Table name: facturas
 #
-#  id         :integer          not null, primary key
-#  compania   :string
-#  fecha      :datetime
-#  impuesto   :decimal(, )
-#  vendedor   :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :integer          not null, primary key
+#  compania    :string
+#  estado      :string
+#  fecha       :datetime
+#  impuesto    :decimal(, )
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  empleado_id :integer
 #
 require 'test_helper'
 

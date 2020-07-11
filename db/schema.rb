@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_10_075704) do
+ActiveRecord::Schema.define(version: 2020_07_11_081254) do
+
+  create_table "empleados", force: :cascade do |t|
+    t.string "nombre"
+    t.string "puesto"
+    t.string "telefono"
+    t.string "estado"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "empresas", force: :cascade do |t|
     t.string "nombre"
@@ -25,9 +34,10 @@ ActiveRecord::Schema.define(version: 2020_07_10_075704) do
     t.datetime "fecha"
     t.string "compania"
     t.decimal "impuesto"
-    t.string "vendedor"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "estado"
+    t.integer "empleado_id"
   end
 
   create_table "usuarios", force: :cascade do |t|
