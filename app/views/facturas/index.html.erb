@@ -17,7 +17,7 @@
       <thead>
         <tr>
           <th>Fecha</th>
-          <th>Compania</th>
+          <th>Compañía</th>
           <th>Impuesto</th>
           <th>Empleado</th>
           <th>Estado</th>
@@ -30,7 +30,7 @@
           <tr>
             <td><%= factura.fecha.strftime("%Y-%m-%d") %></td>
             <td><%= factura.compania %></td>
-            <td><%= factura.impuesto %></td>
+            <td><%= "#{factura.impuesto}%" %></td>
             <td><%= factura.empleado.nombre if factura.empleado_id %></td>
             <td><%= factura.estado %></td>
             <td><%= link_to 'Mostrar', factura, class: 'btn btn-mini btn-success' %></td>
