@@ -1,0 +1,40 @@
+<div class="row">
+  <%= form_with(model: [@factura, @compra], local: true) do |form| %>
+    
+    <div class="control-group">
+      <%= form.label :nombre, class: 'control-label' %>
+      <div class="controls">
+        <%= form.text_field :nombre %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= form.label :categoria, class: 'control-label' %>
+      <div class="controls">
+        <%= form.text_field :categoria %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= form.label :cantidad, class: 'control-label' %>
+      <div class="controls">
+        <%= form.number_field :cantidad %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= form.label :precio, class: 'control-label' %>
+      <div class="controls">
+        <%= form.text_field :precio %>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="control-group">
+      <div class="controls">
+        <%= form.submit 'Guardar', class: 'btn btn-default' %>
+      </div>
+    </div>
+  <% end %>
+</div>

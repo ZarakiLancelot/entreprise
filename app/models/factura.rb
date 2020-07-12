@@ -13,4 +13,5 @@
 #
 class Factura < ApplicationRecord
     belongs_to :empleado
+    has_many :compras, dependent: :destroy
 end

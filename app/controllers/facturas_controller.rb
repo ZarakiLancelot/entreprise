@@ -11,6 +11,8 @@ class FacturasController < ApplicationController
   # GET /facturas/1
   # GET /facturas/1.json
   def show
+    @factura = Factura.find(params[:id])
+    @compras = @factura.compras
   end
 
   # GET /facturas/new
@@ -29,7 +31,7 @@ class FacturasController < ApplicationController
 
     respond_to do |format|
       if @factura.save
-        format.html { redirect_to @factura, notice: 'Factura was successfully created.' }
+        format.html { redirect_to @factura, notice: 'Factura creada.' }
         format.json { render :show, status: :created, location: @factura }
       else
         format.html { render :new }
@@ -43,7 +45,7 @@ class FacturasController < ApplicationController
   def update
     respond_to do |format|
       if @factura.update(factura_params)
-        format.html { redirect_to @factura, notice: 'Factura was successfully updated.' }
+        format.html { redirect_to @factura, notice: 'Factura actualizada.' }
         format.json { render :show, status: :ok, location: @factura }
       else
         format.html { render :edit }

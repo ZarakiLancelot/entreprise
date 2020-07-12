@@ -1,0 +1,33 @@
+# == Schema Information
+#
+# Table name: compras
+#
+#  id         :integer          not null, primary key
+#  cantidad   :integer
+#  categoria  :string
+#  nombre     :string
+#  precio     :decimal(, )
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  factura_id :integer          not null
+#
+# Indexes
+#
+#  index_compras_on_factura_id  (factura_id)
+#
+# Foreign Keys
+#
+#  factura_id  (factura_id => facturas.id)
+#
+
+one:
+  nombre: MyString
+  categoria: MyString
+  cantidad: 1
+  factura: one
+
+two:
+  nombre: MyString
+  categoria: MyString
+  cantidad: 1
+  factura: two

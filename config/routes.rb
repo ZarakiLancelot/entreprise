@@ -1,14 +1,12 @@
 # == Route Map
 #
 #                                Prefix Verb   URI Pattern                                                                              Controller#Action
-#                             empleados GET    /empleados(.:format)                                                                     empleados#index
-#                                       POST   /empleados(.:format)                                                                     empleados#create
-#                          new_empleado GET    /empleados/new(.:format)                                                                 empleados#new
-#                         edit_empleado GET    /empleados/:id/edit(.:format)                                                            empleados#edit
-#                              empleado GET    /empleados/:id(.:format)                                                                 empleados#show
-#                                       PATCH  /empleados/:id(.:format)                                                                 empleados#update
-#                                       PUT    /empleados/:id(.:format)                                                                 empleados#update
-#                                       DELETE /empleados/:id(.:format)                                                                 empleados#destroy
+#                      bienvenida_index GET    /bienvenida/index(.:format)                                                              bienvenida#index
+#                      bienvenida_about GET    /bienvenida/about(.:format)                                                              bienvenida#about
+#                   bienvenida_contacto GET    /bienvenida/contacto(.:format)                                                           bienvenida#contacto
+#            bienvenida_caracteristicas GET    /bienvenida/caracteristicas(.:format)                                                    bienvenida#caracteristicas
+#                        bienvenida_faq GET    /bienvenida/faq(.:format)                                                                bienvenida#faq
+#                    bienvenida_precios GET    /bienvenida/precios(.:format)                                                            bienvenida#precios
 #                   new_usuario_session GET    /usuarios/sign_in(.:format)                                                              devise/sessions#new
 #                       usuario_session POST   /usuarios/sign_in(.:format)                                                              devise/sessions#create
 #               destroy_usuario_session DELETE /usuarios/sign_out(.:format)                                                             devise/sessions#destroy
@@ -27,12 +25,13 @@
 #              new_usuario_confirmation GET    /usuarios/confirmation/new(.:format)                                                     devise/confirmations#new
 #                  usuario_confirmation GET    /usuarios/confirmation(.:format)                                                         devise/confirmations#show
 #                                       POST   /usuarios/confirmation(.:format)                                                         devise/confirmations#create
-#                      bienvenida_index GET    /bienvenida/index(.:format)                                                              bienvenida#index
-#                      bienvenida_about GET    /bienvenida/about(.:format)                                                              bienvenida#about
-#                   bienvenida_contacto GET    /bienvenida/contacto(.:format)                                                           bienvenida#contacto
-#            bienvenida_caracteristicas GET    /bienvenida/caracteristicas(.:format)                                                    bienvenida#caracteristicas
-#                        bienvenida_faq GET    /bienvenida/faq(.:format)                                                                bienvenida#faq
-#                    bienvenida_precios GET    /bienvenida/precios(.:format)                                                            bienvenida#precios
+#                       factura_compras POST   /facturas/:factura_id/compras(.:format)                                                  facturas/compras#create
+#                    new_factura_compra GET    /facturas/:factura_id/compras/new(.:format)                                              facturas/compras#new
+#                   edit_factura_compra GET    /facturas/:factura_id/compras/:id/edit(.:format)                                         facturas/compras#edit
+#                        factura_compra GET    /facturas/:factura_id/compras/:id(.:format)                                              facturas/compras#show
+#                                       PATCH  /facturas/:factura_id/compras/:id(.:format)                                              facturas/compras#update
+#                                       PUT    /facturas/:factura_id/compras/:id(.:format)                                              facturas/compras#update
+#                                       DELETE /facturas/:factura_id/compras/:id(.:format)                                              facturas/compras#destroy
 #                              facturas GET    /facturas(.:format)                                                                      facturas#index
 #                                       POST   /facturas(.:format)                                                                      facturas#create
 #                           new_factura GET    /facturas/new(.:format)                                                                  facturas#new
@@ -41,6 +40,14 @@
 #                                       PATCH  /facturas/:id(.:format)                                                                  facturas#update
 #                                       PUT    /facturas/:id(.:format)                                                                  facturas#update
 #                                       DELETE /facturas/:id(.:format)                                                                  facturas#destroy
+#                             empleados GET    /empleados(.:format)                                                                     empleados#index
+#                                       POST   /empleados(.:format)                                                                     empleados#create
+#                          new_empleado GET    /empleados/new(.:format)                                                                 empleados#new
+#                         edit_empleado GET    /empleados/:id/edit(.:format)                                                            empleados#edit
+#                              empleado GET    /empleados/:id(.:format)                                                                 empleados#show
+#                                       PATCH  /empleados/:id(.:format)                                                                 empleados#update
+#                                       PUT    /empleados/:id(.:format)                                                                 empleados#update
+#                                       DELETE /empleados/:id(.:format)                                                                 empleados#destroy
 #                     importar_empresas POST   /empresas/importar(.:format)                                                             empresas#importar
 #                              empresas GET    /empresas(.:format)                                                                      empresas#index
 #                                       POST   /empresas(.:format)                                                                      empresas#create
@@ -74,8 +81,6 @@
 
 Rails.application.routes.draw do
   
-  resources :empleados
-  devise_for :usuarios
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
   get 'bienvenida/index'
@@ -85,8 +90,14 @@ Rails.application.routes.draw do
   get 'bienvenida/faq'
   get 'bienvenida/precios'
   
-  resources :facturas
+  devise_for :usuarios
+
+  resources :facturas do
+    resources :compras, except: [:index], controller: 'facturas/compras'
+  end
   
+  resources :empleados
+    
   resources :empresas do
     collection { post :importar }
   end

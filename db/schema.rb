@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_11_081254) do
+ActiveRecord::Schema.define(version: 2020_07_12_074522) do
+
+  create_table "compras", force: :cascade do |t|
+    t.string "nombre"
+    t.string "categoria"
+    t.integer "cantidad"
+    t.integer "factura_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.decimal "precio"
+    t.index ["factura_id"], name: "index_compras_on_factura_id"
+  end
 
   create_table "empleados", force: :cascade do |t|
     t.string "nombre"
@@ -61,4 +72,5 @@ ActiveRecord::Schema.define(version: 2020_07_11_081254) do
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "compras", "facturas"
 end

@@ -20,5 +20,42 @@
   <%= @factura.empleado.nombre %>
 </p>
 
-<%= link_to 'Editar', edit_factura_path(@factura) %> |
-<%= link_to 'Regresar', facturas_path %>
+<div class="media">
+  <div class="media-body">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Categoría</th>
+          <th>Cantidad</th>
+          <th>Precio</th>
+          <th>Total</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% total_total = 0 %>
+        <% @compras.each do |compra| %>
+          <tr>
+            <td><%= compra.nombre %></td>
+            <td><%= compra.categoria %></td>
+            <td><%= compra.cantidad %></td>
+            <td><%= number_to_currency(compra.precio, unit: "Q") %></td>
+            <td><%= number_to_currency(compra.cantidad * compra.precio, unit: "Q") %></td>
+            <td><%= link_to "Eliminar", [@factura, compra], method: :delete, class: 'btn btn-danger', data: { confirm: 'Está seguro de elimninar este item?' } %></td>
+            <% total_total = total_total + (compra.cantidad * compra.precio) %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= link_to 'Agregar nuevo item', new_factura_compra_path(@factura), class: 'btn btn-default pull-right' %>
+
+<hr>
+
+<h4 class="pull-right">Total Factura: <%= number_to_currency(total_total, unit: "Q") %></h4>
+
+<%= link_to 'Editar', edit_factura_path(@factura), class: 'btn btn-default' %> |
+<%= link_to 'Regresar', facturas_path, class: 'btn btn-default' %>
